@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_shift"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="me.snadeem.omceventscommissiontracker.shiftActivity">
+
+    <ImageButton
+        android:id="@+id/options"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="49dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:onClick="addCard"
+        android:scaleType="centerCrop"
+        android:src="@drawable/options_card" />
+
+    <ImageButton
+        android:id="@+id/gas"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/options"
+        android:layout_alignStart="@+id/options"
+        android:layout_below="@+id/options"
+        android:layout_marginTop="14dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:onClick="addCard"
+        android:scaleType="centerCrop"
+        android:src="@drawable/gas_card" />
+
+    <ImageButton
+        android:id="@+id/cash"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/gas"
+        android:layout_alignStart="@+id/gas"
+        android:layout_below="@+id/gas"
+        android:layout_marginTop="10dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:onClick="addCard"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cash_card" />
+
+    <TextView
+        android:id="@+id/cashActives"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/cashApps"
+        android:layout_alignStart="@+id/cashApps"
+        android:layout_below="@+id/cashApps"
+        android:layout_marginTop="16dp"
+        android:text="ACTIVES"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_alignLeft="@+id/cashApps" />
+
+    <Button
+        android:id="@+id/finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:background="#d10000"
+        android:onClick="endShift"
+        android:text="FINISH"
+        android:textColor="#ffffff"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/gasAppsNum"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/gasApps"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/gasApps"
+        android:layout_toStartOf="@+id/gasApps"
+        android:text="0"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/omcActivesNum"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/omcActives"
+        android:layout_marginRight="5sp"
+        android:layout_toLeftOf="@+id/omcActives"
+        android:layout_toStartOf="@+id/omcActives"
+        android:text="0"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/gasActives"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/gasApps"
+        android:layout_alignStart="@+id/gasApps"
+        android:layout_below="@+id/gasApps"
+        android:layout_marginTop="10dp"
+        android:text="ACTIVES"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_alignLeft="@+id/gasApps" />
+
+    <TextView
+        android:id="@+id/cashApps"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/finish"
+        android:layout_alignRight="@+id/gasActives"
+        android:layout_alignTop="@+id/cash"
+        android:text="APPLICATIONS"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/cashAppsNum"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/cashApps"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/omcApps"
+        android:layout_toStartOf="@+id/cashApps"
+        android:text="0"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/cashActivesNum"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/cashActives"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/omcApps"
+        android:layout_toStartOf="@+id/cashActives"
+        android:text="0"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/gasActivesNum"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/gasActives"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/omcApps"
+        android:layout_toStartOf="@+id/omcApps"
+        android:text="0"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/gasApps"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/finish"
+        android:layout_alignRight="@+id/finish"
+        android:layout_alignTop="@+id/gas"
+        android:text="APPLICATIONS"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/omcApps"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/finish"
+        android:layout_alignRight="@+id/finish"
+        android:layout_alignTop="@+id/options"
+        android:text="APPLICATIONS"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/omcActives"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/omcApps"
+        android:layout_alignStart="@+id/omcApps"
+        android:layout_below="@+id/omcAppsNum"
+        android:text="ACTIVES"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/omcAppsNum"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/omcApps"
+        android:layout_marginRight="5sp"
+        android:layout_toLeftOf="@+id/omcApps"
+        android:layout_toStartOf="@+id/omcApps"
+        android:text="0"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/commissionNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/earnings"
+        android:layout_alignBottom="@+id/earnings"
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@+id/earnings"
+        android:layout_toRightOf="@+id/earnings"
+        android:text="$500.00"
+        android:textColor="#009605"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/earnings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/finish"
+        android:layout_alignLeft="@+id/cash"
+        android:layout_alignStart="@+id/cash"
+        android:text="Earnings:"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/suppNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20%"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_alignBaseline="@+id/suppRatio"
+        android:layout_alignBottom="@+id/suppRatio"
+        android:layout_toRightOf="@+id/suppRatio"
+        android:layout_toEndOf="@+id/suppRatio"
+        android:layout_marginLeft="5dp"/>
+
+    <TextView
+        android:id="@+id/insRatio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insurance Ratio:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/suppNum"
+        android:layout_alignRight="@+id/cash"
+        android:layout_alignEnd="@+id/cash"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/insNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20%"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_alignBaseline="@+id/insRatio"
+        android:layout_alignBottom="@+id/insRatio"
+        android:layout_toRightOf="@+id/insRatio"
+        android:layout_toEndOf="@+id/insRatio"
+        android:layout_marginLeft="5dp" />
+
+    <TextView
+        android:id="@+id/cardRatio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OMC Ratio:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/insNum"
+        android:layout_alignRight="@+id/cash"
+        android:layout_alignEnd="@+id/cash"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/cardNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20%"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_alignBaseline="@+id/cardRatio"
+        android:layout_alignBottom="@+id/cardRatio"
+        android:layout_toRightOf="@+id/cardRatio"
+        android:layout_toEndOf="@+id/cardRatio"
+        android:layout_marginLeft="5dp"/>
+
+    <TextView
+        android:id="@+id/suppRatio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Supplementary Ratio:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/cash"
+        android:layout_alignRight="@+id/cash"
+        android:layout_alignEnd="@+id/cash"
+        android:layout_marginTop="18dp" />
+
+</RelativeLayout>
