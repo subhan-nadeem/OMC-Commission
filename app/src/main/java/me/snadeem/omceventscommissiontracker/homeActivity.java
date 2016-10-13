@@ -21,6 +21,7 @@ import java.util.Calendar;
 
 public class homeActivity extends AppCompatActivity {
 
+    // Global constants
     final String SPACE = " ";
     public final static String SHIFT_DATE = "shiftDate";
 
