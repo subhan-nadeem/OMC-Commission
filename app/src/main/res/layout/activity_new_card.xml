@@ -11,74 +11,74 @@
         style="?metaButtonBarButtonStyle"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="#d10000"
-        android:text="Add card"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="addCardTotals"/>
+        android:layout_weight="1"
+        android:background="#d10000"
+        android:onClick="addCardTotals"
+        android:text="Add card"
+        android:textColor="#ffffff"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/newCardDisplay"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="centerCrop"
-        android:src="@drawable/options_card"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:src="@drawable/options_card" />
 
     <CheckBox
-        android:text="Active"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/activeBox"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:layout_marginTop="17dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/appBox"
+        android:layout_alignStart="@+id/appBox"
         android:layout_below="@+id/appBox"
-        android:layout_alignLeft="@+id/appBox"
-        android:layout_alignStart="@+id/appBox" />
+        android:layout_marginTop="17dp"
+        android:text="Active"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <CheckBox
-        android:text="Supplementary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/suppBox"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:layout_marginTop="17dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/appBox"
+        android:layout_alignStart="@+id/appBox"
         android:layout_below="@+id/activeBox"
-        android:layout_alignLeft="@+id/appBox"
-        android:layout_alignStart="@+id/appBox" />
-
-    <CheckBox
-        android:text="Insurance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/insBox"
-        android:textSize="30dp"
-        android:textStyle="bold"
         android:layout_marginTop="17dp"
-        android:layout_below="@+id/suppBox"
-        android:layout_alignLeft="@+id/appBox"
-        android:layout_alignStart="@+id/appBox" />
+        android:text="Supplementary"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <CheckBox
-        android:text="Application"
+        android:id="@+id/insBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/appBox"
+        android:layout_alignStart="@+id/appBox"
+        android:layout_below="@+id/suppBox"
+        android:layout_marginTop="17dp"
+        android:text="Insurance"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <CheckBox
         android:id="@+id/appBox"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:layout_marginTop="19dp"
-        android:layout_below="@+id/newCardDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/newCardDisplay"
-        android:layout_alignStart="@+id/newCardDisplay" />
+        android:layout_alignStart="@+id/newCardDisplay"
+        android:layout_below="@+id/newCardDisplay"
+        android:layout_marginTop="19dp"
+        android:text="Application"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

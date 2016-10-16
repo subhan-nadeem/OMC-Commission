@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import static me.snadeem.omceventscommissiontracker.homeActivity.SPACE;
+import static me.snadeem.omceventscommissiontracker.homeActivity.fadeIn;
 import static me.snadeem.omceventscommissiontracker.homeActivity.getMonth;
 import static me.snadeem.omceventscommissiontracker.shiftActivity.COMMISSION;
 import static me.snadeem.omceventscommissiontracker.shiftActivity.dollar;
@@ -44,7 +45,7 @@ public class payPeriodActivity extends AppCompatActivity {
 
         startDate = (EditText) findViewById(R.id.dateOne);
         endDate = (EditText) findViewById(R.id.dateTwo);
-        start_date = end_date = getMonth(start_month) + SPACE + start_day + ", " + start_year;;
+        start_date = end_date = getMonth(start_month) + SPACE + start_day + ", " + start_year;
 
         startDate.setText(start_date);
         endDate.setText(end_date);
@@ -72,8 +73,8 @@ public class payPeriodActivity extends AppCompatActivity {
 
         endDate.setOnClickListener(new View.OnClickListener() {
 
-                @Override
-                public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
                 final DatePickerDialog mDatePicker = new DatePickerDialog(payPeriodActivity.this,
                         new DatePickerDialog.OnDateSetListener() {
                             public void onDateSet(DatePicker datepicker, int selectedyear,
@@ -100,8 +101,8 @@ public class payPeriodActivity extends AppCompatActivity {
     }
 
     public void calculateStats(View view) {
-        String calendar_start_date = start_year + "-"+(start_month+1)+"-"+start_day;
-        String calendar_end_date = end_year + "-"+(end_month+1)+"-"+end_day;
+        String calendar_start_date = start_year + "-" + (start_month + 1) + "-" + start_day;
+        String calendar_end_date = end_year + "-" + (end_month + 1) + "-" + end_day;
         String sharedPrefName;
         SimpleDateFormat calendarDate = new SimpleDateFormat("yyyy-MM-dd");
         Calendar c = Calendar.getInstance();
@@ -110,14 +111,13 @@ public class payPeriodActivity extends AppCompatActivity {
 
         try {
             c.setTime(calendarDate.parse(calendar_start_date));
-        }
-        catch (ParseException e) {
+        } catch (ParseException e) {
             e.printStackTrace();
         }
 
         while (true) {
-            if ((int) c.get(Calendar.DATE) == end_day && (int) c.get(Calendar.MONTH) == end_month
-                    && (int) c.get(Calendar.YEAR) == end_year) {
+            if (c.get(Calendar.DATE) == end_day && c.get(Calendar.MONTH) == end_month
+                    && c.get(Calendar.YEAR) == end_year) {
                 break;
             }
 
@@ -125,7 +125,7 @@ public class payPeriodActivity extends AppCompatActivity {
                     c.get(Calendar.YEAR);
             data = getSharedPreferences(sharedPrefName, Context.MODE_PRIVATE);
             totalCommission += Double.parseDouble(data.getString(COMMISSION, "0"));
-                    c.add(Calendar.DATE, 1);
+            c.add(Calendar.DATE, 1);
         }
 
         sharedPrefName = getMonth(c.get(Calendar.MONTH)) + SPACE + c.get(Calendar.DATE) + ", " +
@@ -134,8 +134,20 @@ public class payPeriodActivity extends AppCompatActivity {
         totalCommission += Double.parseDouble(data.getString(COMMISSION, "0"));
 
         TextView total = (TextView) findViewById(R.id.total);
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.calculations);
+        final RelativeLayout layout = (RelativeLayout) findViewById(R.id.calculations);
         layout.setVisibility(View.VISIBLE);
+        layout.setAlpha(0);
+        fadeIn(layout);
+        /**
+         final int DURATION = 1000;
+         layout.animate().setDuration(DURATION).alpha(1).setListener(new AnimatorListenerAdapter() {
+        @Override public void onAnimationEnd(Animator animation) {
+        layout.setVisibility(View.VISIBLE);
+        }
+        });
+         **/
+
+
         total.setText(dollar.format(totalCommission));
     }
 }

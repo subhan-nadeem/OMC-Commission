@@ -147,11 +147,9 @@ public class shiftActivity extends AppCompatActivity {
 
         if (cardRatio < FIFTY_PERCENT) {
             cardRatioView.setTextColor(getResources().getColor(R.color.red));
-        }
-        else if (cardRatio < SIXTY_PERCENT) {
+        } else if (cardRatio < SIXTY_PERCENT) {
             cardRatioView.setTextColor(getResources().getColor(R.color.yellow));
-        }
-        else {
+        } else {
             cardRatioView.setTextColor(getResources().getColor(R.color.green));
         }
         cardRatioView.setText(pct.format(cardRatio));
@@ -207,11 +205,11 @@ public class shiftActivity extends AppCompatActivity {
     public double calculateCardRatio() {
         double ratio = 0;
         double omcApps = shift.getInt(OMC_APPS, 0);
-        double otherApps = shift.getInt(GAS_APPS,0) + shift.getInt(CASH_APPS,0);
-        double totalApps = omcApps+otherApps;
+        double otherApps = shift.getInt(GAS_APPS, 0) + shift.getInt(CASH_APPS, 0);
+        double totalApps = omcApps + otherApps;
 
-        if (totalApps!=0){
-            return omcApps/totalApps;
+        if (totalApps != 0) {
+            return omcApps / totalApps;
         }
         return 0;
     }

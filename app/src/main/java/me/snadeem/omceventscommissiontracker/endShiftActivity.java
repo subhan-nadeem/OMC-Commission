@@ -22,7 +22,7 @@ public class endShiftActivity extends AppCompatActivity {
 
 
         final double commission = Double.parseDouble(shift.getString(COMMISSION, "0"));
-        final String salesDate = "on " + selected_date+ ".";
+        final String salesDate = "on " + selected_date + ".";
 
         TextView earnings = (TextView) findViewById(R.id.earnings);
         TextView date = (TextView) findViewById(R.id.earnedDate);

@@ -12,11 +12,11 @@
         style="@style/Base.TextAppearance.AppCompat.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="From"
-        android:textStyle="bold"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="86dp" />
+        android:layout_marginTop="86dp"
+        android:text="From"
+        android:textStyle="bold" />
 
 
     <EditText
@@ -24,87 +24,86 @@
         style="@style/Base.TextAppearance.AppCompat.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableRight="@android:drawable/ic_menu_my_calendar"
-        android:focusable="false"
         android:layout_below="@+id/header"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:drawableRight="@android:drawable/ic_menu_my_calendar"
+        android:focusable="false" />
 
     <TextView
         android:id="@+id/to"
         style="@style/Base.TextAppearance.AppCompat.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="to"
-        android:textStyle="bold"
+        android:layout_below="@id/dateOne"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/dateOne" />
+        android:text="to"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/dateTwo"
         style="@style/Base.TextAppearance.AppCompat.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableRight="@android:drawable/ic_menu_my_calendar"
-        android:focusable="false"
         android:layout_below="@+id/to"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp"
-        android:layout_centerHorizontal="true"/>
+        android:drawableRight="@android:drawable/ic_menu_my_calendar"
+        android:focusable="false" />
 
     <Button
         android:id="@+id/calculateButton"
         style="@style/Base.TextAppearance.AppCompat.Large"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/dateTwo"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/roundbutton"
         android:onClick="calculateStats"
         android:text="Calculate"
         android:textColor="#ffff"
-        android:textStyle="bold"
-        android:layout_below="@+id/dateTwo"
-        android:layout_centerHorizontal="true" />
+        android:textStyle="bold" />
 
     <RelativeLayout
+        android:id="@+id/calculations"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        android:id="@+id/calculations"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        >
+        android:layout_alignParentTop="true"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/youEarned2"
             style="@style/Base.TextAppearance.AppCompat.Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="You earned"
-            android:textStyle="bold"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="170dp" />
+            android:layout_marginBottom="170dp"
+            android:text="You earned"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/total"
             style="@style/Base.TextAppearance.AppCompat.Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="to"
-            android:textStyle="bold"
-            android:textColor="@color/green"
             android:layout_alignTop="@+id/youEarned2"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="28dp" />
+            android:layout_marginTop="28dp"
+            android:text="to"
+            android:textColor="@color/green"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/duringPeriod"
             style="@style/Base.TextAppearance.AppCompat.Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="during this period."
-            android:textStyle="bold"
             android:layout_below="@id/total"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:text="during this period."
+            android:textStyle="bold" />
 
     </RelativeLayout>
 

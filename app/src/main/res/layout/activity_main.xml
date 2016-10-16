@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/homeActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="me.snadeem.omceventscommissiontracker.homeActivity">
@@ -45,22 +45,22 @@
         android:textStyle="bold" />
 
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:id="@+id/frameLayout"
-        android:layout_marginRight="27dp"
-        android:layout_marginEnd="27dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="41dp">
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="41dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginRight="27dp">
 
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/assessment" />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/assessment" />
 
 
     </FrameLayout>

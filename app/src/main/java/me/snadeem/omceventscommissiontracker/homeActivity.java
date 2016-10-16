@@ -1,5 +1,7 @@
 package me.snadeem.omceventscommissiontracker;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,22 +17,33 @@ import java.util.Calendar;
 
 // TODO Add navigation drawer to all screens
 // TODO Center app logo
-// TODO Add pay period commission navigator
-// TODO Change theme color to match button color
 // TODO Add settings in drawer, enabling commission rates to be changed
 
 public class homeActivity extends AppCompatActivity {
 
+    public final static String SHIFT_DATE = "shiftDate";
     // Global constants
     final static String SPACE = " ";
-    public final static String SHIFT_DATE = "shiftDate";
-
+    public static String selected_date;
     // Variable Initialization
     EditText dateBox;
     int current_year = Calendar.getInstance().get(Calendar.YEAR);
     int current_month = Calendar.getInstance().get(Calendar.MONTH);
     int current_day = Calendar.getInstance().get(Calendar.DATE);
-    public static String selected_date;
+
+    public static void fadeIn(final View view) {
+        final int DURATION = 1000;
+        view.animate().setDuration(DURATION).alpha(1).setListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                view.setVisibility(View.VISIBLE);
+            }
+        });
+    }
+
+    public static String getMonth(int month) {
+        return new DateFormatSymbols().getMonths()[month];
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,10 +86,6 @@ public class homeActivity extends AppCompatActivity {
                 mDatePicker.show();
             }
         });
-    }
-
-    public static String getMonth(int month) {
-        return new DateFormatSymbols().getMonths()[month];
     }
 
     public void startShift(View view) {

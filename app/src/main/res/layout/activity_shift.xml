@@ -55,14 +55,14 @@
         style="@style/Base.TextAppearance.AppCompat.Medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cashApps"
         android:layout_alignRight="@+id/cashApps"
         android:layout_alignStart="@+id/cashApps"
         android:layout_below="@+id/cashApps"
         android:layout_marginTop="16dp"
         android:text="ACTIVES"
         android:textColor="#000000"
-        android:textStyle="bold"
-        android:layout_alignLeft="@+id/cashApps" />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/finish"
@@ -111,14 +111,14 @@
         style="@style/Base.TextAppearance.AppCompat.Medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/gasApps"
         android:layout_alignRight="@+id/gasApps"
         android:layout_alignStart="@+id/gasApps"
         android:layout_below="@+id/gasApps"
         android:layout_marginTop="10dp"
         android:text="ACTIVES"
         android:textColor="#000000"
-        android:textStyle="bold"
-        android:layout_alignLeft="@+id/gasApps" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/cashApps"
@@ -250,81 +250,81 @@
         android:id="@+id/suppNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/suppRatio"
+        android:layout_alignBottom="@+id/suppRatio"
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@+id/suppRatio"
+        android:layout_toRightOf="@+id/suppRatio"
         android:text="20%"
         android:textColor="#000000"
         android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_alignBaseline="@+id/suppRatio"
-        android:layout_alignBottom="@+id/suppRatio"
-        android:layout_toRightOf="@+id/suppRatio"
-        android:layout_toEndOf="@+id/suppRatio"
-        android:layout_marginLeft="5dp"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/insRatio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/cash"
+        android:layout_alignRight="@+id/cash"
+        android:layout_alignTop="@+id/suppNum"
+        android:layout_marginTop="20dp"
         android:text="Insurance Ratio:"
         android:textColor="#000000"
         android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_alignTop="@+id/suppNum"
-        android:layout_alignRight="@+id/cash"
-        android:layout_alignEnd="@+id/cash"
-        android:layout_marginTop="20dp" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/insNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/insRatio"
+        android:layout_alignBottom="@+id/insRatio"
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@+id/insRatio"
+        android:layout_toRightOf="@+id/insRatio"
         android:text="20%"
         android:textColor="#000000"
         android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_alignBaseline="@+id/insRatio"
-        android:layout_alignBottom="@+id/insRatio"
-        android:layout_toRightOf="@+id/insRatio"
-        android:layout_toEndOf="@+id/insRatio"
-        android:layout_marginLeft="5dp" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/cardRatio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/cash"
+        android:layout_alignRight="@+id/cash"
+        android:layout_alignTop="@+id/insNum"
+        android:layout_marginTop="20dp"
         android:text="OMC Ratio:"
         android:textColor="#000000"
         android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_alignTop="@+id/insNum"
-        android:layout_alignRight="@+id/cash"
-        android:layout_alignEnd="@+id/cash"
-        android:layout_marginTop="20dp" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/cardNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/cardRatio"
+        android:layout_alignBottom="@+id/cardRatio"
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@+id/cardRatio"
+        android:layout_toRightOf="@+id/cardRatio"
         android:text="20%"
         android:textColor="#000000"
         android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_alignBaseline="@+id/cardRatio"
-        android:layout_alignBottom="@+id/cardRatio"
-        android:layout_toRightOf="@+id/cardRatio"
-        android:layout_toEndOf="@+id/cardRatio"
-        android:layout_marginLeft="5dp"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/suppRatio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/cash"
+        android:layout_alignRight="@+id/cash"
+        android:layout_below="@+id/cash"
+        android:layout_marginTop="18dp"
         android:text="Supplementary Ratio:"
         android:textColor="#000000"
         android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_below="@+id/cash"
-        android:layout_alignRight="@+id/cash"
-        android:layout_alignEnd="@+id/cash"
-        android:layout_marginTop="18dp" />
+        android:textStyle="bold" />
 
 </RelativeLayout>
