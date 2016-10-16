@@ -36,6 +36,7 @@ public class shiftActivity extends AppCompatActivity {
     public static final String CASH_APPS = "cashApps";
     public static final String CASH_ACTIVES = "cashActives";
     public static final String COMMISSION = "commission";
+
     // Global variables
     public static SharedPreferences shift;
     public static SharedPreferences.Editor editor;

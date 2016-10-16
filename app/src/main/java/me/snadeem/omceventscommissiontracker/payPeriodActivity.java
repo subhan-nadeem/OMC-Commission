@@ -135,17 +135,7 @@ public class payPeriodActivity extends AppCompatActivity {
 
         TextView total = (TextView) findViewById(R.id.total);
         final RelativeLayout layout = (RelativeLayout) findViewById(R.id.calculations);
-        layout.setVisibility(View.VISIBLE);
-        layout.setAlpha(0);
         fadeIn(layout);
-        /**
-         final int DURATION = 1000;
-         layout.animate().setDuration(DURATION).alpha(1).setListener(new AnimatorListenerAdapter() {
-        @Override public void onAnimationEnd(Animator animation) {
-        layout.setVisibility(View.VISIBLE);
-        }
-        });
-         **/
 
 
         total.setText(dollar.format(totalCommission));

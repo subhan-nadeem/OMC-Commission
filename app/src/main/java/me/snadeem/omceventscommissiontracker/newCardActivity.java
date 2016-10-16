@@ -9,6 +9,8 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import static me.snadeem.omceventscommissiontracker.homeActivity.fadeIn;
+import static me.snadeem.omceventscommissiontracker.homeActivity.fadeOut;
 import static me.snadeem.omceventscommissiontracker.shiftActivity.CARD_TYPE;
 import static me.snadeem.omceventscommissiontracker.shiftActivity.TYPE_CASH;
 import static me.snadeem.omceventscommissiontracker.shiftActivity.TYPE_GAS;
@@ -17,7 +19,6 @@ import static me.snadeem.omceventscommissiontracker.shiftActivity.editor;
 import static me.snadeem.omceventscommissiontracker.shiftActivity.shift;
 
 // TODO Add ability to modify all card stats
-// TODO Add graying out of checkboxes
 
 public class newCardActivity extends AppCompatActivity {
 
@@ -29,6 +30,10 @@ public class newCardActivity extends AppCompatActivity {
     final static String SUPP_ACTIVE = "SuppActive";
     // Global variables
     public String cardType;
+    CheckBox app;
+    CheckBox active;
+    CheckBox supp;
+    CheckBox ins;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,27 @@ public class newCardActivity extends AppCompatActivity {
         cardType = intent.getStringExtra(CARD_TYPE);
         ImageView img = (ImageView) findViewById(R.id.newCardDisplay);
         ActionBar bar = getSupportActionBar();
+        app = (CheckBox) findViewById(R.id.appBox);
+        active = (CheckBox) findViewById(R.id.activeBox);
+        supp = (CheckBox) findViewById(R.id.suppBox);
+        ins = (CheckBox) findViewById(R.id.insBox);
+
+        app.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                //is chkIos checked?
+                if ((app.isChecked())) {
+                    fadeIn(active);
+                    fadeIn(supp);
+                    fadeIn(ins);
+                }
+                else {
+                    fadeOut(active);
+                    fadeOut(supp);
+                    fadeOut(ins);
+                }
+        }});
 
         switch (cardType) {
             case TYPE_OMC:
@@ -70,10 +96,6 @@ public class newCardActivity extends AppCompatActivity {
         final int numInsActive = shift.getInt(cardType + INS_ACTIVE, 0);
         final int numSupp = shift.getInt(cardType + SUPP, 0);
         final int numSuppActive = shift.getInt(cardType + SUPP_ACTIVE, 0);
-        final CheckBox app = (CheckBox) findViewById(R.id.appBox);
-        final CheckBox active = (CheckBox) findViewById(R.id.activeBox);
-        final CheckBox supp = (CheckBox) findViewById(R.id.suppBox);
-        final CheckBox ins = (CheckBox) findViewById(R.id.insBox);
 
 
         if (app.isChecked()) {

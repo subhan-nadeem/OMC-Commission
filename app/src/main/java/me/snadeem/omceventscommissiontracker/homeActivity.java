@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
@@ -21,10 +22,12 @@ import java.util.Calendar;
 
 public class homeActivity extends AppCompatActivity {
 
+
     public final static String SHIFT_DATE = "shiftDate";
     // Global constants
     final static String SPACE = " ";
     public static String selected_date;
+
     // Variable Initialization
     EditText dateBox;
     int current_year = Calendar.getInstance().get(Calendar.YEAR);
@@ -32,11 +35,23 @@ public class homeActivity extends AppCompatActivity {
     int current_day = Calendar.getInstance().get(Calendar.DATE);
 
     public static void fadeIn(final View view) {
+        view.setVisibility(View.VISIBLE);
+        view.setAlpha(0);
         final int DURATION = 1000;
         view.animate().setDuration(DURATION).alpha(1).setListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 view.setVisibility(View.VISIBLE);
+            }
+        });
+    }
+
+    public static void fadeOut (final View view) {
+        final int DURATION = 800;
+        view.animate().setDuration(DURATION).alpha(0).setListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                view.setVisibility(View.GONE);
             }
         });
     }
@@ -50,6 +65,9 @@ public class homeActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        fadeIn((RelativeLayout) findViewById(R.id.homeActivity));
+
         initializeActionBar();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

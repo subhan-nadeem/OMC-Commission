@@ -43,7 +43,8 @@
         android:layout_marginTop="17dp"
         android:text="Active"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="gone" />
 
     <CheckBox
         android:id="@+id/suppBox"
@@ -55,7 +56,8 @@
         android:layout_marginTop="17dp"
         android:text="Supplementary"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="gone" />
 
     <CheckBox
         android:id="@+id/insBox"
@@ -67,7 +69,8 @@
         android:layout_marginTop="17dp"
         android:text="Insurance"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="gone" />
 
     <CheckBox
         android:id="@+id/appBox"
@@ -79,6 +82,6 @@
         android:layout_marginTop="19dp"
         android:text="Application"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
 </RelativeLayout>
