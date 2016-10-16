@@ -3,6 +3,7 @@ package me.snadeem.omceventscommissiontracker;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,7 +15,6 @@ import java.util.Calendar;
 
 // TODO Add navigation drawer to all screens
 // TODO Center app logo
-// TODO Remove all possible copyright/trademark infringements
 // TODO Add pay period commission navigator
 // TODO Change theme color to match button color
 // TODO Add settings in drawer, enabling commission rates to be changed
@@ -37,10 +37,15 @@ public class homeActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ActionBar bar = getSupportActionBar();
-        bar.setDisplayShowHomeEnabled(true);
-        bar.setIcon(R.mipmap.ic_launcher);
-        bar.setDisplayShowTitleEnabled(false);
+        initializeActionBar();
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchPayPeriodCalculator(view);
+            }
+        });
 
         selected_date = getMonth(current_month) + SPACE + current_day + ", " + current_year;
         // Initialize date box to current date
@@ -79,5 +84,17 @@ public class homeActivity extends AppCompatActivity {
         intent.putExtra(SHIFT_DATE, selected_date);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+    }
+
+    public void launchPayPeriodCalculator(View view) {
+        Intent intent = new Intent(this, payPeriodActivity.class);
+        startActivity(intent);
+    }
+
+    public void initializeActionBar() {
+        ActionBar bar = getSupportActionBar();
+        bar.setDisplayShowHomeEnabled(true);
+        bar.setIcon(R.mipmap.ic_launcher);
+        bar.setDisplayShowTitleEnabled(false);
     }
 }
