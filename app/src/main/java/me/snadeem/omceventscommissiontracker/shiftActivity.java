@@ -24,6 +24,7 @@ public class shiftActivity extends AppCompatActivity {
     // TODO Make stats appear only when not zero
 
     // Global constants
+    public static final DecimalFormat dollar = new DecimalFormat("$#.##");
     public static final String CARD_TYPE = "cardType";
     public static final String TYPE_OMC = "omc";
     public static final String TYPE_GAS = "gas";
@@ -88,6 +89,7 @@ public class shiftActivity extends AppCompatActivity {
         int gasActivesNum = shift.getInt(GAS_APPS, 0);
         int cashAppsNum = shift.getInt(CASH_APPS, 0);
         int cashActivesNum = shift.getInt(CASH_ACTIVES, 0);
+        double commission = calculateCommission();
 
         TextView commissionView = (TextView) findViewById(R.id.commissionNum);
         TextView omcApps = (TextView) findViewById(R.id.omcAppsNum);
@@ -103,9 +105,12 @@ public class shiftActivity extends AppCompatActivity {
         gasActives.setText(String.valueOf(gasActivesNum));
         cashApps.setText(String.valueOf(cashAppsNum));
         cashActives.setText(String.valueOf(cashActivesNum));
+        editor.putString(COMMISSION, String.valueOf(commission));
+        editor.commit();
 
-        commissionView.setText(calculateCommission());
+        commissionView.setText(dollar.format(commission));
     }
+
     public void setRatios() {
 
         // Local constants
@@ -150,10 +155,10 @@ public class shiftActivity extends AppCompatActivity {
             cardRatioView.setTextColor(getResources().getColor(R.color.green));
         }
         cardRatioView.setText(pct.format(cardRatio));
+
     }
 
-    public String calculateCommission() {
-        DecimalFormat df = new DecimalFormat("$#.##");
+    public double calculateCommission() {
         final int OMC_COMMISSION = 21;
         final int GAS_COMMISSION = 11;
         final int CASH_COMMISSION = 11;
@@ -168,7 +173,7 @@ public class shiftActivity extends AppCompatActivity {
                 + shift.getInt(TYPE_GAS + SUPP_ACTIVE, 0) + shift.getInt(TYPE_CASH + SUPP_ACTIVE, 0))
                 + INS_COMMISSION * (shift.getInt(TYPE_OMC + INS_ACTIVE, 0)
                 + shift.getInt(TYPE_GAS + INS_ACTIVE, 0) + shift.getInt(TYPE_CASH + INS_ACTIVE, 0));
-        return df.format(commission);
+        return commission;
     }
 
     public double calculateSuppRatio() {
@@ -212,9 +217,7 @@ public class shiftActivity extends AppCompatActivity {
     }
 
     public void endShift(View view) {
-        final String commission = calculateCommission();
         Intent intent = new Intent(this, endShiftActivity.class);
-        intent.putExtra(COMMISSION, commission);
         startActivity(intent);
     }
 

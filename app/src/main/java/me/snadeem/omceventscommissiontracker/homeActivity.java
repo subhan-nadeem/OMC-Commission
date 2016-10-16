@@ -22,7 +22,7 @@ import java.util.Calendar;
 public class homeActivity extends AppCompatActivity {
 
     // Global constants
-    final String SPACE = " ";
+    final static String SPACE = " ";
     public final static String SHIFT_DATE = "shiftDate";
 
     // Variable Initialization
@@ -75,7 +75,7 @@ public class homeActivity extends AppCompatActivity {
         });
     }
 
-    public String getMonth(int month) {
+    public static String getMonth(int month) {
         return new DateFormatSymbols().getMonths()[month];
     }
 

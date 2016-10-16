@@ -4,10 +4,108 @@
     android:id="@+id/activity_pay_period"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="me.snadeem.omceventscommissiontracker.payPeriodActivity">
+
+
+    <TextView
+        android:id="@+id/header"
+        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="From"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="86dp" />
+
+
+    <EditText
+        android:id="@+id/dateOne"
+        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableRight="@android:drawable/ic_menu_my_calendar"
+        android:focusable="false"
+        android:layout_below="@+id/header"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/to"
+        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="to"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/dateOne" />
+
+    <EditText
+        android:id="@+id/dateTwo"
+        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableRight="@android:drawable/ic_menu_my_calendar"
+        android:focusable="false"
+        android:layout_below="@+id/to"
+        android:layout_marginBottom="15dp"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/calculateButton"
+        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundbutton"
+        android:onClick="calculateStats"
+        android:text="Calculate"
+        android:textColor="#ffff"
+        android:textStyle="bold"
+        android:layout_below="@+id/dateTwo"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:id="@+id/calculations"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        >
+
+        <TextView
+            android:id="@+id/youEarned2"
+            style="@style/Base.TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You earned"
+            android:textStyle="bold"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="170dp" />
+
+        <TextView
+            android:id="@+id/total"
+            style="@style/Base.TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="to"
+            android:textStyle="bold"
+            android:textColor="@color/green"
+            android:layout_alignTop="@+id/youEarned2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="28dp" />
+
+        <TextView
+            android:id="@+id/duringPeriod"
+            style="@style/Base.TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="during this period."
+            android:textStyle="bold"
+            android:layout_below="@id/total"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>

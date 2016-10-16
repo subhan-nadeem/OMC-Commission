@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import static me.snadeem.omceventscommissiontracker.homeActivity.selected_date;
 import static me.snadeem.omceventscommissiontracker.shiftActivity.COMMISSION;
+import static me.snadeem.omceventscommissiontracker.shiftActivity.dollar;
+import static me.snadeem.omceventscommissiontracker.shiftActivity.shift;
 
 public class endShiftActivity extends AppCompatActivity {
 
@@ -19,13 +21,13 @@ public class endShiftActivity extends AppCompatActivity {
         initializeActionBar();
 
 
-        final String commission = getIntent().getStringExtra(COMMISSION);
-        final String salesDate = "on " + selected_date+".";
+        final double commission = Double.parseDouble(shift.getString(COMMISSION, "0"));
+        final String salesDate = "on " + selected_date+ ".";
 
         TextView earnings = (TextView) findViewById(R.id.earnings);
         TextView date = (TextView) findViewById(R.id.earnedDate);
         date.setText(salesDate);
-        earnings.setText(commission);
+        earnings.setText(dollar.format(commission));
     }
 
     public void initializeActionBar() {
