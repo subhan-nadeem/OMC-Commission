@@ -22,12 +22,14 @@ import static me.snadeem.omceventscommissiontracker.shiftActivity.shift;
 
 public class newCardActivity extends AppCompatActivity {
 
+    // Global constants
     final static String APP = "Apps";
     final static String ACTIVE = "Actives";
     final static String INS = "Ins";
     final static String INS_ACTIVE = "InsActive";
     final static String SUPP = "Supp";
     final static String SUPP_ACTIVE = "SuppActive";
+
     // Global variables
     public String cardType;
     CheckBox app;
@@ -51,11 +53,12 @@ public class newCardActivity extends AppCompatActivity {
         supp = (CheckBox) findViewById(R.id.suppBox);
         ins = (CheckBox) findViewById(R.id.insBox);
 
+
+        // Hide/show actives, supps, and ins checkbox based on application checkbox status
         app.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                //is chkIos checked?
                 if ((app.isChecked())) {
                     fadeIn(active);
                     fadeIn(supp);
@@ -110,7 +113,8 @@ public class newCardActivity extends AppCompatActivity {
                 if (ins.isChecked()) {
                     editor.putInt(cardType + INS_ACTIVE, numInsActive + 1);
                 }
-            } else {
+            }
+            else {
                 if (supp.isChecked()) {
                     editor.putInt(cardType + SUPP, numSupp + 1);
                 }

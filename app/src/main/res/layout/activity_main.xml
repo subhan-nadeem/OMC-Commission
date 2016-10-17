@@ -17,7 +17,7 @@
         android:layout_alignRight="@+id/date"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:background="@drawable/roundbutton"
+        android:background="@drawable/rectangle_button"
         android:onClick="startShift"
         android:text="Start Shift"
         android:textColor="#ffff"

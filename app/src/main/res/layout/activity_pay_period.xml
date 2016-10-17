@@ -18,7 +18,6 @@
         android:text="From"
         android:textStyle="bold" />
 
-
     <EditText
         android:id="@+id/dateOne"
         style="@style/Base.TextAppearance.AppCompat.Large"
@@ -57,11 +56,24 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/dateTwo"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/roundbutton"
+        android:background="@drawable/rectangle_button"
         android:onClick="calculateStats"
         android:text="Calculate"
         android:textColor="#ffff"
         android:textStyle="bold" />
+
+
+
+    <TextView
+        android:id="@+id/titlePayPeriod"
+        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/calculations"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Pay Period Calculator"
+        android:textColor="@color/colorPrimaryDark" />
 
     <RelativeLayout
         android:id="@+id/calculations"
