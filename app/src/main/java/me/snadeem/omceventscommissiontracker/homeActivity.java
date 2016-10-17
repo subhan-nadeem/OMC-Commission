@@ -11,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
@@ -28,7 +27,7 @@ public class homeActivity extends AppCompatActivity {
     final static String SPACE = " ";
     public static String selected_date;
 
-    // Variable Initialization
+    // Global variables
     EditText dateBox;
     int current_year = Calendar.getInstance().get(Calendar.YEAR);
     int current_month = Calendar.getInstance().get(Calendar.MONTH);
@@ -60,15 +59,21 @@ public class homeActivity extends AppCompatActivity {
         return new DateFormatSymbols().getMonths()[month];
     }
 
+    public static void initializeActionBar(ActionBar bar) {
+        bar.setDisplayShowHomeEnabled(true);
+        bar.setIcon(R.mipmap.ic_launcher);
+        bar.setDisplayShowTitleEnabled(false);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fadeIn((RelativeLayout) findViewById(R.id.homeActivity));
+        fadeIn(findViewById(R.id.homeActivity));
 
-        initializeActionBar();
+        initializeActionBar(getSupportActionBar());
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -116,12 +121,5 @@ public class homeActivity extends AppCompatActivity {
     public void launchPayPeriodCalculator(View view) {
         Intent intent = new Intent(this, payPeriodActivity.class);
         startActivity(intent);
-    }
-
-    public void initializeActionBar() {
-        ActionBar bar = getSupportActionBar();
-        bar.setDisplayShowHomeEnabled(true);
-        bar.setIcon(R.mipmap.ic_launcher);
-        bar.setDisplayShowTitleEnabled(false);
     }
 }
