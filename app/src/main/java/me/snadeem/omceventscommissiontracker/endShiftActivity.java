@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import static me.snadeem.omceventscommissiontracker.homeActivity.fadeIn;
 import static me.snadeem.omceventscommissiontracker.homeActivity.initializeActionBar;
 import static me.snadeem.omceventscommissiontracker.homeActivity.selected_date;
 import static me.snadeem.omceventscommissiontracker.shiftActivity.COMMISSION;
@@ -19,7 +20,9 @@ public class endShiftActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_shift);
         initializeActionBar(getSupportActionBar());
+        fadeIn(findViewById(R.id.endShiftAcitivity));
 
+        // Local constants
         final double commission = Double.parseDouble(shift.getString(COMMISSION, "0"));
         final String salesDate = "on " + selected_date + ".";
 
@@ -34,4 +37,5 @@ public class endShiftActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
+
 }

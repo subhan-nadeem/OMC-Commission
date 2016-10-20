@@ -26,7 +26,6 @@ public class homeActivity extends AppCompatActivity {
     // Global constants
     final static String SPACE = " ";
     public static String selected_date;
-
     // Global variables
     EditText dateBox;
     int current_year = Calendar.getInstance().get(Calendar.YEAR);
@@ -83,10 +82,9 @@ public class homeActivity extends AppCompatActivity {
             }
         });
 
-        selected_date = getMonth(current_month) + SPACE + current_day + ", " + current_year;
         // Initialize date box to current date
         dateBox = (EditText) findViewById(R.id.date);
-
+        selected_date = getMonth(current_month) + SPACE + current_day + ", " + current_year;
         dateBox.setText(selected_date);
 
         dateBox.setOnClickListener(new View.OnClickListener() {
