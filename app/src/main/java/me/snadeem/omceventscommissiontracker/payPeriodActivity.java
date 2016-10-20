@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.DatePicker;
@@ -19,6 +18,7 @@ import java.util.Calendar;
 import static me.snadeem.omceventscommissiontracker.homeActivity.SPACE;
 import static me.snadeem.omceventscommissiontracker.homeActivity.fadeIn;
 import static me.snadeem.omceventscommissiontracker.homeActivity.getMonth;
+import static me.snadeem.omceventscommissiontracker.homeActivity.initializeActionBar;
 import static me.snadeem.omceventscommissiontracker.shiftActivity.COMMISSION;
 import static me.snadeem.omceventscommissiontracker.shiftActivity.dollar;
 
@@ -40,7 +40,7 @@ public class payPeriodActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay_period);
-        initializeActionBar();
+        initializeActionBar(getSupportActionBar());
 
 
         startDate = (EditText) findViewById(R.id.dateOne);
@@ -91,13 +91,6 @@ public class payPeriodActivity extends AppCompatActivity {
                 mDatePicker.show();
             }
         });
-    }
-
-    public void initializeActionBar() {
-        ActionBar bar = getSupportActionBar();
-        bar.setDisplayShowHomeEnabled(true);
-        bar.setIcon(R.mipmap.ic_launcher);
-        bar.setDisplayShowTitleEnabled(false);
     }
 
     public void calculateStats(View view) {

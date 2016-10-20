@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -12,6 +11,7 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 
 import static me.snadeem.omceventscommissiontracker.homeActivity.SHIFT_DATE;
+import static me.snadeem.omceventscommissiontracker.homeActivity.initializeActionBar;
 import static me.snadeem.omceventscommissiontracker.newCardActivity.INS;
 import static me.snadeem.omceventscommissiontracker.newCardActivity.INS_ACTIVE;
 import static me.snadeem.omceventscommissiontracker.newCardActivity.SUPP;
@@ -45,11 +45,7 @@ public class shiftActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shift);
-
-        ActionBar bar = getSupportActionBar();
-        bar.setDisplayShowHomeEnabled(true);
-        bar.setIcon(R.mipmap.ic_launcher);
-        bar.setDisplayShowTitleEnabled(false);
+        initializeActionBar(getSupportActionBar());
 
         // Open SharedPreferences of current shift
         Intent intent = getIntent();
