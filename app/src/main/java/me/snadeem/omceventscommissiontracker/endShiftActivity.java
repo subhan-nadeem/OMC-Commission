@@ -19,7 +19,8 @@ public class endShiftActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_shift);
-        initializeActionBar(getSupportActionBar());
+        final String TITLE_TEXT = "";
+        initializeActionBar(getSupportActionBar(),this, TITLE_TEXT);
         fadeIn(findViewById(R.id.endShiftAcitivity));
 
         // Local constants

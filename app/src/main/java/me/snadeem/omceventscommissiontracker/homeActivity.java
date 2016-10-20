@@ -3,14 +3,17 @@ package me.snadeem.omceventscommissiontracker;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
@@ -26,6 +29,7 @@ public class homeActivity extends AppCompatActivity {
     // Global constants
     final static String SPACE = " ";
     public static String selected_date;
+
     // Global variables
     EditText dateBox;
     int current_year = Calendar.getInstance().get(Calendar.YEAR);
@@ -58,10 +62,16 @@ public class homeActivity extends AppCompatActivity {
         return new DateFormatSymbols().getMonths()[month];
     }
 
-    public static void initializeActionBar(ActionBar bar) {
-        bar.setDisplayShowHomeEnabled(true);
-        bar.setIcon(R.mipmap.ic_launcher);
-        bar.setDisplayShowTitleEnabled(false);
+    public static void initializeActionBar(ActionBar mActionBar, Context origin, final String titleText) {
+        mActionBar.setDisplayShowHomeEnabled(false);
+        mActionBar.setDisplayShowTitleEnabled(false);
+        LayoutInflater mInflater = LayoutInflater.from(origin);
+
+        View mCustomView = mInflater.inflate(R.layout.actionbar, null);
+        TextView mTitleTextView = (TextView) mCustomView.findViewById(R.id.title_text);
+        mTitleTextView.setText(titleText);
+        mActionBar.setCustomView(mCustomView);
+        mActionBar.setDisplayShowCustomEnabled(true);
     }
 
     @Override
@@ -72,7 +82,9 @@ public class homeActivity extends AppCompatActivity {
 
         fadeIn(findViewById(R.id.homeActivity));
 
-        initializeActionBar(getSupportActionBar());
+        // Initialize action bar
+        final String TITLE_TEXT = "Commission Tracker";
+        initializeActionBar(getSupportActionBar(),this, TITLE_TEXT);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

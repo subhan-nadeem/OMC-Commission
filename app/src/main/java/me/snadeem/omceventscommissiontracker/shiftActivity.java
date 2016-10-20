@@ -45,11 +45,13 @@ public class shiftActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shift);
-        initializeActionBar(getSupportActionBar());
-
-        // Open SharedPreferences of current shift
         Intent intent = getIntent();
         String shiftDate = intent.getStringExtra(SHIFT_DATE);
+        final String TITLE_TEXT = shiftDate;
+        initializeActionBar(getSupportActionBar(),this, TITLE_TEXT);
+
+
+        // Open SharedPreferences of current shift
         shift = getSharedPreferences(shiftDate, Context.MODE_PRIVATE);
         editor = shift.edit();
     }

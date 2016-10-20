@@ -24,7 +24,7 @@ import static me.snadeem.omceventscommissiontracker.shiftActivity.dollar;
 
 public class payPeriodActivity extends AppCompatActivity {
 
-
+    // Global variables
     int start_year = Calendar.getInstance().get(Calendar.YEAR);
     int start_month = Calendar.getInstance().get(Calendar.MONTH);
     int start_day = Calendar.getInstance().get(Calendar.DATE);
@@ -40,9 +40,10 @@ public class payPeriodActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay_period);
-        initializeActionBar(getSupportActionBar());
+        final String TITLE_TEXT = "Pay Period Calculator";
+        initializeActionBar(getSupportActionBar(),this, TITLE_TEXT);
 
-
+        // Initialize both date boxes to today's date
         startDate = (EditText) findViewById(R.id.dateOne);
         endDate = (EditText) findViewById(R.id.dateTwo);
         start_date = end_date = getMonth(start_month) + SPACE + start_day + ", " + start_year;
@@ -50,6 +51,7 @@ public class payPeriodActivity extends AppCompatActivity {
         startDate.setText(start_date);
         endDate.setText(end_date);
 
+        // Check start date box
         startDate.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -94,43 +96,54 @@ public class payPeriodActivity extends AppCompatActivity {
     }
 
     public void calculateStats(View view) {
-        String calendar_start_date = start_year + "-" + (start_month + 1) + "-" + start_day;
-        String calendar_end_date = end_year + "-" + (end_month + 1) + "-" + end_day;
+
+        // Local constants
+        final String calendar_start_date = start_year + "-" + (start_month + 1) + "-" + start_day;
+        final SimpleDateFormat calendarDate = new SimpleDateFormat("yyyy-MM-dd");
+        final TextView total = (TextView) findViewById(R.id.total);
+        final RelativeLayout layout = (RelativeLayout) findViewById(R.id.calculations);
+
+        // Local variables
         String sharedPrefName;
-        SimpleDateFormat calendarDate = new SimpleDateFormat("yyyy-MM-dd");
         Calendar c = Calendar.getInstance();
         SharedPreferences data;
         double totalCommission = 0;
 
         try {
+            // Set current date to the start date, as specified by user
             c.setTime(calendarDate.parse(calendar_start_date));
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
+
+        // Iterate through statistics from start date to end date as specified by user
         while (true) {
+
+            // If current date is equal to the end date, break loop
             if (c.get(Calendar.DATE) == end_day && c.get(Calendar.MONTH) == end_month
                     && c.get(Calendar.YEAR) == end_year) {
                 break;
             }
 
+            // Retrieve SharedPref and data specified to current date
             sharedPrefName = getMonth(c.get(Calendar.MONTH)) + SPACE + c.get(Calendar.DATE) + ", " +
                     c.get(Calendar.YEAR);
             data = getSharedPreferences(sharedPrefName, Context.MODE_PRIVATE);
+
+            // Add to total commission
             totalCommission += Double.parseDouble(data.getString(COMMISSION, "0"));
             c.add(Calendar.DATE, 1);
         }
 
+        // Final data fetching for the end date
         sharedPrefName = getMonth(c.get(Calendar.MONTH)) + SPACE + c.get(Calendar.DATE) + ", " +
                 c.get(Calendar.YEAR);
         data = getSharedPreferences(sharedPrefName, Context.MODE_PRIVATE);
         totalCommission += Double.parseDouble(data.getString(COMMISSION, "0"));
 
-        TextView total = (TextView) findViewById(R.id.total);
-        final RelativeLayout layout = (RelativeLayout) findViewById(R.id.calculations);
+        // Send commission to textview
         fadeIn(layout);
-
-
         total.setText(dollar.format(totalCommission));
     }
 }
