@@ -4,7 +4,7 @@
     android:id="@+id/activity_new_card"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="me.snadeem.omceventscommissiontracker.newCardActivity">
+    tools:context="me.snadeem.omceventscommissiontracker.NewCardActivity">
 
     <Button
         android:id="@+id/addCard"

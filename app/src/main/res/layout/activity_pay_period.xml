@@ -4,7 +4,7 @@
     android:id="@+id/activity_pay_period"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="me.snadeem.omceventscommissiontracker.payPeriodActivity">
+    tools:context="me.snadeem.omceventscommissiontracker.PayPeriodActivity">
 
 
     <TextView

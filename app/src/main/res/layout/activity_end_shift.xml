@@ -4,7 +4,7 @@
     android:id="@+id/endShiftAcitivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="me.snadeem.omceventscommissiontracker.endShiftActivity">
+    tools:context="me.snadeem.omceventscommissiontracker.EndShiftActivity">
 
     <TextView
         android:id="@+id/earnings"
